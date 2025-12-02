@@ -8,7 +8,7 @@
         <p class="typography paragraph">
           I oppstart av reguleringsplaner eller tilsvarende, er det et behov for å kommunisere ut informasjon til grunneiere. <br>
           Dette kan dreie seg om noen få til flere tusen grunneiere på en plan. Masseutsendelse skal gjør denne jobben lettere. <br>
-          Ved å benytte seg av tredjeparts apier og egenutviklede apier vil masseutsendelse ta seg av utsendelse og arkivering av informasjonen sendt ut til grunneiere. 
+          Ved å benytte seg av tredjeparts og egenutviklede API-er vil masseutsendelse ta seg av utsendelse og arkivering av informasjonen sendt ut til grunneiere. 
         </p>
         <span class="error">Det er viktig at polygonet benytter koordinatsystem EUREF89 UTM Sone 32</span>
         <!-- Bruk av siden -->

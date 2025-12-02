@@ -104,7 +104,7 @@ const store = new Vuex.Store({
           message: 'Dette kan ta noen sekunder'
         })
 
-        // Define the requiest
+        // Define the request
         const request = {
           url: config.MASSEUTSENDELSEAPI_BASEURL + 'generatePDF',
           method: 'post',
@@ -151,7 +151,7 @@ const store = new Vuex.Store({
     },
     async getBrreg (context, id) {
       try {
-        if (!id) throw new AppError('ID cannot be empty, must provide an ID to make the reqeust.')
+        if (!id) throw new AppError('ID cannot be empty, must provide an ID to make the request.')
 
         const request = {
           method: 'GET',
@@ -163,7 +163,7 @@ const store = new Vuex.Store({
         // Make the request
         const response = await axios.request(request)
 
-        // Return the respose
+        // Return the response
         return response.data
       } catch (err) {
         console.log('Error getting orgbyId for pre included orgs')
@@ -382,10 +382,8 @@ const store = new Vuex.Store({
         request.headers.authorization = `Bearer ${Vue.prototype.$accessToken.accessToken}`
 
         // Make request
-        const response = await axios.request(request)
-
         // Return the response
-        return response
+        return await axios.request(request)
       } catch (err) {
         return Promise.reject(err)
       }

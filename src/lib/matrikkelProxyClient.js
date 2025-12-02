@@ -3,7 +3,7 @@
 */
 import config from '../../config'
 import AppError from './vtfk-errors/AppError'
-import { removeKeys } from '@vtfk/utilities'
+import {removeKeys} from '@vtfk/utilities'
 import store from '../store'
 
 export default class MatrikkelProxyClient {
@@ -33,7 +33,7 @@ export default class MatrikkelProxyClient {
       request.url = this.apiBaseUrl + request.url
     }
 
-    // Make sure that headers are setup on the request
+    // Make sure that headers are set up on the request
     if (!request.headers) request.headers = {}
     request.headers['Content-Type'] = 'application/json'
     if (this.apiKey) request.headers['X-API-KEY'] = this.apiKey
@@ -65,14 +65,12 @@ export default class MatrikkelProxyClient {
     }
 
     // Make the request
-    const response = await store.dispatch('makeMatrikkelRequest', request)
-
     // Return the full response
-    return response
+    return await store.dispatch('makeMatrikkelRequest', request)
   }
 
   async getMatrikkelEnheterFromPolygon (polygon, epsg, matrikkelContext) {
-    if (!polygon) { throw new ('Polygon cannot be empty')() }
+    if (!polygon) { throw new AppError('Polygon cannot be empty') }
 
     // Translate from EPST to MatrikkelKoordinatSystemKodeId
     if (!epsg) throw new AppError('Koordinatsystem mangler', 'Kan ikke kontakte matrikkelen uten å vite epsg-koden til koordinatene')
@@ -102,7 +100,7 @@ export default class MatrikkelProxyClient {
     // Make the request
     const response = await this.makeRequest(request, matrikkelContext)
 
-    // Return the respose
+    // Return the response
     return response.data
   }
 
@@ -128,12 +126,12 @@ export default class MatrikkelProxyClient {
     // Make the request
     const response = await this.makeRequest(request, options, matrikkelContext)
 
-    // Return the respose
+    // Return the response
     return response.data
   }
 
   /**
-    * Will attempt to get the type of a provided object if it is not flattened
+    * Will attempt to get the type of provided object if it is not flattened
     * @param {Item} Item - An object returned from the MatrikkelAPI
   */
   static getItemType (Item) {
@@ -168,7 +166,8 @@ export default class MatrikkelProxyClient {
 
   /**
    *
-   * @param {Object} data Data object containing MatrikkelEnheter
+   * @param {Object} matrikkelUnits Data object containing MatrikkelEnheter
+   * @param {Object} matrikkelOwners Data object containing MatrikkelEiere
    */
   static getMatrikkelEnheterOwnerCentric (matrikkelUnits, matrikkelOwners) {
     if (!matrikkelUnits) throw new AppError('MatrikkelEnheter missing', 'No MatrikkelEnheter is provided')
@@ -177,11 +176,11 @@ export default class MatrikkelProxyClient {
     // Object to store
     const returnedOwners = {}
 
-    // Loop through units as they contains the owner information
+    // Loop through units as they contain the owner information
     for (const unit of matrikkelUnits) {
       if (unit.eierforhold) {
         unit.eierforhold.forEach((ownership) => {
-          // Retreive the owner for the ownership
+          // Retrieve the owner for the ownership
           const owner = matrikkelOwners.find((o) => o.id.value === ownership.eierId)
           if (!owner) throw new AppError('Kunne ikke finne eier til eierskap', `Eier med id ${ownership.eierforhold} kunne ikke finnes for ${unit.bruksnavn}`)
 

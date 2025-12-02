@@ -72,7 +72,7 @@ export default {
       try {
         if(!blob) return;
 
-        // If the blob dont have data url and it has been provided a download base url
+        // If the blob don't have data url, and it has been provided a download base url
         if(!blob.dataUrl && this.$props.downloadBaseUrl) {
           let request = {
             method: 'get',
@@ -99,9 +99,7 @@ export default {
         link.href = blob.dataUrl;
         link.setAttribute('download', blob.name);
         document.body.appendChild(link);
-        link.click()
-
-        return;
+        link.click();
       } catch (err) {
         this.$store.commit('setModalError', err);
       }
