@@ -8,7 +8,7 @@
         <!-- Bruk av siden -->
         <div style="margin-top: 2rem;" class="header-part typography heading-two">Bruk av siden</div>
         <p>
-          1. Last opp en polygon fil<br>
+          1. Last opp en polygon-fil<br>
           2. Verifiser at polygonet treffer korrekt på kart<br>
           3. Trykk på Kontakt Matrikkel-knappen<br>
           4. Verifiser at innhentet informasjon ser korrekt ut<br>
@@ -16,7 +16,7 @@
           6. Trykk forhåndsvisning og kvitter ut at utsendelsen ser korrekt ut<br>
           7. Trykk Send inn<br>
           <br>
-          Utsendelsen vil så legges i en kø. Når utsendelsen er godkjent vil den sendes ut klokken 00:00
+          Utsendelsen vil så legges i en kø. Når utsendelsen er godkjent vil den sendes ut dagen etterpå mellom klokken 12:00 og 13:00.
         </p>
         <!-- Se, endre, slette -->
         <div style="margin-top: 2rem;" class="header-part typography heading-two">Se, endre, slette</div>

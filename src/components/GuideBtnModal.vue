@@ -14,7 +14,7 @@
         <!-- Bruk av siden -->
         <div style="margin-top: 2rem;" class="header-part typography heading-two">Bruk av siden</div>
         <p>
-          1. Last opp polygon fil<br>
+          1. Last opp polygon-fil<br>
           2. Verifiser at polygonet treffer korrekt på kart<br>
           3. Trykk på Kontakt Matrikkel-knappen<br>
           4. Verifiser at innhentet informasjon ser korrekt ut<br>

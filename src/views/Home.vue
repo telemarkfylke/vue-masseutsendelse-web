@@ -5,7 +5,7 @@
       <div class="typography heading-two header-title">Masseutsendelse</div>
       <p class="typography paragraph header-description text-center" style="margin-top: 1rem;">
         Ett verktøy utviklet for Samferdsel og mobilitet sektoren.<br/>
-        Verktøyet lar deg laste opp en polygon fil, gjøre oppslag i Matrikkelen og varsle alle eiere som befinner seg innenfor polygonet.
+        Verktøyet lar deg laste opp en polygon-fil, gjøre oppslag i Matrikkelen og varsle alle eiere som befinner seg innenfor polygonet.
       </p>
       <div style="display: flex; flex-direction: row; padding-top: 1rem; gap: 1rem;">
         <div>
