@@ -96,6 +96,7 @@ const store = new Vuex.Store({
         const requestData = {
           preview: true,
           template: req.template.template,
+          templateName: req.template.name,
           documentDefinitionId: req.template.documentDefinitionId,
           data
         }
