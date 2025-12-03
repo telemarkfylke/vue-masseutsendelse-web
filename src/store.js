@@ -178,7 +178,7 @@ const store = new Vuex.Store({
 
         // Define the request
         const request = {
-          url: config.MASSEUTSENDELSEAPI_BASEURL + 'dispatches/' + id + '?code=1pcYSPPawrq0FGkzGTwsaLkgmmy3fvRej9ujdDfwXZ17/9bDvFZspQ==',
+          url: config.MASSEUTSENDELSEAPI_BASEURL + 'dispatches/' + id,
           method: 'GET',
           data: id,
           headers: {
@@ -289,7 +289,7 @@ const store = new Vuex.Store({
 
         // Define the request
         const request = {
-          url: config.MASSEUTSENDELSEAPI_BASEURL + 'dispatches?code=zxjm63HhIg6ZqUOE8xdHN8NnJmYh9ocBeFMXVxeBjYVFHEjI9amBFw==',
+          url: config.MASSEUTSENDELSEAPI_BASEURL + 'dispatches',
           method: 'post',
           data,
           headers: {
@@ -320,7 +320,7 @@ const store = new Vuex.Store({
 
         // Define the request
         const request = {
-          url: config.MASSEUTSENDELSEAPI_BASEURL + 'dispatches/' + data._id + '?code=SejmUBQQsdqaduLS0mIBR3MFluZTGdyvxCVkZJibQ6J/bMPaAE4ZqA==',
+          url: config.MASSEUTSENDELSEAPI_BASEURL + 'dispatches/' + data._id,
           method: 'put',
           data,
           headers: {
