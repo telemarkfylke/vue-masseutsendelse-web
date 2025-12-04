@@ -7,6 +7,9 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "@azure/msal-browser": "2.20.0",
     "@mapbox/togeojson": "^0.16.2",
@@ -17,7 +20,6 @@
     "@vtfk/sjablong": "^1.0.2",
     "@vtfk/utilities": "^1.4.1",
     "@xmldom/xmldom": "^0.8.11",
-    "axios": "^1.6.8",
     "dxf-parser": "1.1.2",
     "export-from-json": "^1.7.2",
     "leaflet": "^1.9.4",

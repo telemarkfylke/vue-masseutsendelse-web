@@ -59,7 +59,6 @@
 </template>
 
 <script>
-// import axios from 'axios';
 import { Editor } from '@toast-ui/vue-editor';
 import { Button, TextField } from '@vtfk/components';
 import Sjablong from '@vtfk/sjablong';
