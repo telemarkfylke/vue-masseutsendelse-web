@@ -6,6 +6,7 @@ import Vuex from 'vuex'
 import AppError from './lib/vtfk-errors/AppError'
 import config from '../config'
 import merge from 'lodash.merge'
+import { removeKeys }  from '@vtfk/utilities'
 
 // Configure vue to use Vuex
 Vue.use(Vuex)
@@ -268,6 +269,18 @@ const store = new Vuex.Store({
         // Handle authentication
         await handleAuthentication()
 
+        // Strip away some fields that should not be set by this request
+        template = removeKeys(template, [
+          "createdTimestamp",
+          "createdBy",
+          "createdById",
+          "createdByDepartment",
+          "modifiedTimestamp",
+          "modifiedBy",
+          "modifiedById",
+          "modifiedByDepartment"
+        ])
+
         // Define the request
         const request = {
           method: 'POST',
@@ -305,6 +318,9 @@ const store = new Vuex.Store({
       try {
         // Handle authentication
         await handleAuthentication()
+
+        // Strip away some fields that should not be set by this request.
+        template = removeKeys(template, ["createdTimestamp", "createdBy", "createdById", "modifiedTimestamp", "modifiedBy", "modifiedById"])
 
         // Define the request
         const request = {
@@ -344,6 +360,9 @@ const store = new Vuex.Store({
         // Handle authentication
         await handleAuthentication()
 
+        // Strip away some fields that should not be set by this request
+        data = removeKeys(data, ["validatedArchivenumber", "createdTimestamp", "createdBy", "createdById", "modifiedTimestamp", "modifiedBy", "modifiedById"])
+
         // Define the request
         const request = {
           method: 'POST',
@@ -381,6 +400,19 @@ const store = new Vuex.Store({
       try {
         // Handle authentication
         await handleAuthentication()
+
+        // Strip away some fields that should not be set by this request
+        data = removeKeys(data, [
+          "validatedArchivenumber",
+          "createdTimestamp",
+          "createdBy",
+          "createdById",
+          "createdByDepartment",
+          "modifiedTimestamp",
+          "modifiedBy",
+          "modifiedById",
+          "modifiedByDepartment"
+        ])
 
         // Define the request
         const request = {
