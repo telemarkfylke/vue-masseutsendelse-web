@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "update-browserslist-db": "npx update-browserslist-db@latest",
     "test": "echo \"No tests specified\" && exit 0"
   },
   "engines": {
