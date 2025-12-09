@@ -1207,7 +1207,7 @@
 
         // Properties without owners
         without.forEach(owner => {
-          let without= {
+          let without = {
             tableType: 'Matrikkelenheter uten eierforhold',
             bruksnavn: '',
             type: '',

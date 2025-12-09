@@ -3,7 +3,7 @@
 */
 import config from '../../config'
 import AppError from './vtfk-errors/AppError'
-import {removeKeys} from '@vtfk/utilities'
+import { removeKeys } from '@vtfk/utilities'
 import store from '../store'
 
 export default class MatrikkelProxyClient {
