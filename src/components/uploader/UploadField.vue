@@ -7,7 +7,7 @@
         {{error}}
       </div>
       <div style="display: flex; align-items: center; flex-direction: column; margin-top: 1rem; margin-bottom: 0.5rem; gap: 1rem">
-        <img :src="uploadIcon" style="width: 100px;" alt="" />
+        <img :src="uploadIcon" style="width: 100px;" alt="upload-icon" />
         Dra og slipp eller trykk i feltet for å laste opp fil
         <VTFKButton v-if="availableFiles.length > 0 && $props.showReset" style="flex: 0 1 auto;" id="resetBtn" :passedProps="{onClick: (e) => {reset(e)}}">Reset</VTFKButton>
       </div>

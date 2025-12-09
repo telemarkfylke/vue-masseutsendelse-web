@@ -3,7 +3,7 @@
     <router-link to="/" style="color: inherit; text-decoration: inherit;">
     <div style="display: flex; gap: 0.5rem; align-items: center;">
       <div class="header-part">
-        <img :src="require('@/assets/header_logo.svg')" style="height: 3rem" alt="" />
+        <img :src="require('@/assets/header_logo.svg')" style="height: 3rem" alt="fylkesvåpen" />
       </div>
       <!-- <div class="header-part typography heading-two">
         Masseutsendelse
