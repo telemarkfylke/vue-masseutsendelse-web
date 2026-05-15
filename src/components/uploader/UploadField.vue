@@ -95,7 +95,7 @@ export default {
     },
     maxFilenameLength: {
       type: Number,
-      default: 50
+      default: 255
     }
   },
   data() {
