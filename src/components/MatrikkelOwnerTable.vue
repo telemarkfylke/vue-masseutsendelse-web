@@ -1,16 +1,5 @@
 <template>
-  <VDataTable
-    :key="`${$props.type}-${normalizedItems.length}`"
-    class="shadow"
-    width="100%"
-    style="width: 100%;"
-    :headers="ownerTableHeaders"
-    :items="normalizedItems"
-    item-key="__rowKey"
-    :page.sync="currentPage"
-    :items-per-page="10"
-    :show-expand="true"
-  >
+  <VDataTable class="shadow" width="100%" style="width: 100%;" :headers="ownerTableHeaders" :items="$props.items" item-key="id" :items-per-page="10" :show-expand="true">
     <template v-slot:[`item._type`]="{ item }">
       <div v-if="item._type">
         <div v-if="item._type.toLowerCase().includes('juridisk')">
@@ -80,7 +69,6 @@
 <script>
   export default {
     name: 'MatrikkelOwnerTable',
-    inheritAttrs: false,
     props: {
       type: {
         type: String,
@@ -92,11 +80,14 @@
       disableinputs: {
         type: Boolean,
         default: false
+      },
+      'item-key': {
+        type: [String, Number],
+        default: 'id'
       }
     },
     data() {
       return {
-        currentPage: 1,
         tableHeader: [
           {
             text: 'Navn',
@@ -156,22 +147,6 @@
       }
     },
     computed: {
-      pageCount() {
-        const perPage = 10;
-        return Math.max(1, Math.ceil(this.normalizedItems.length / perPage));
-      },
-      normalizedItems() {
-        if(!Array.isArray(this.$props.items)) return [];
-
-        // Ensure each row has a unique/stable key so pagination behaves consistently.
-        return this.$props.items.map((item, index) => {
-          const key = item?.id || item?.nummer || `${item?.navn || 'owner'}-${index}`;
-          return {
-            ...item,
-            __rowKey: `${key}-${index}`
-          }
-        })
-      },
       ownerTableHeaders() {
         if(this.$props.type === 'included') {
           return [
@@ -220,11 +195,6 @@
             }
           ]
         }
-      }
-    },
-    watch: {
-      normalizedItems() {
-        if(this.currentPage > this.pageCount) this.currentPage = this.pageCount;
       }
     },
     methods: {
