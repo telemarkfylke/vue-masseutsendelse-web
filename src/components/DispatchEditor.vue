@@ -721,6 +721,17 @@
               exclusionReason: 'Etat uten eierforhold',
               ownerships: []
             }
+
+            const hasPostAddress = !!(
+              (orgObj.brreg && orgObj.brreg.postadresse && (orgObj.brreg.postadresse.adresse || orgObj.brreg.postadresse.postnummer || orgObj.brreg.postadresse.poststed)) ||
+              (orgObj.postadresse && (orgObj.postadresse.adresselinje || orgObj.postadresse.adresselinje1 || orgObj.postadresse.adresselinje2 || orgObj.postadresse.adresselinje3 || orgObj.postadresse.adresse || orgObj.postadresse.postnummer || orgObj.postadresse.poststed))
+            );
+
+            if(!hasPostAddress) {
+              orgObj.exclusionReason = 'Må håndtres manuelt, manlger postadresse';
+              orgObj.isHardExcluded = true;
+            }
+
             preExcludedUnits.push(orgObj)
           }
 
