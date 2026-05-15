@@ -1,5 +1,14 @@
 <template>
-  <VDataTable class="shadow" width="100%" style="width: 100%;" :headers="ownerTableHeaders" :items="$props.items" item-key="id" :items-per-page="10" :show-expand="true">
+  <VDataTable
+    class="shadow"
+    width="100%"
+    style="width: 100%;"
+    :headers="ownerTableHeaders"
+    :items="normalizedItems"
+    item-key="__rowKey"
+    :items-per-page="10"
+    :show-expand="true"
+  >
     <template v-slot:[`item._type`]="{ item }">
       <div v-if="item._type">
         <div v-if="item._type.toLowerCase().includes('juridisk')">
@@ -80,10 +89,6 @@
       disableinputs: {
         type: Boolean,
         default: false
-      },
-      'item-key': {
-        type: [String, Number],
-        default: 'id'
       }
     },
     data() {
@@ -147,6 +152,18 @@
       }
     },
     computed: {
+      normalizedItems() {
+        if(!Array.isArray(this.$props.items)) return [];
+
+        // Ensure each row has a unique/stable key so pagination behaves consistently.
+        return this.$props.items.map((item, index) => {
+          const key = item?.id || item?.nummer || `${item?.navn || 'owner'}-${index}`;
+          return {
+            ...item,
+            __rowKey: `${key}-${index}`
+          }
+        })
+      },
       ownerTableHeaders() {
         if(this.$props.type === 'included') {
           return [
